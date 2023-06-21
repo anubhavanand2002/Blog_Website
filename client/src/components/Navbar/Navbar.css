@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(13, 15, 13);
+    padding: 20px;
+}
+.logo{
+    font-weight:700;
+    font-size: x-large;
+    color: white;
+}
+.button-container{
+    width:14%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn{
+    background-color: rgb(255, 0, 166);
+    padding: 8px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: larger;
+    color: white;
+    box-shadow: 2px 2px;
+}
+
+.check-blogs{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
