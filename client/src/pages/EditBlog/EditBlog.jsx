@@ -9,7 +9,7 @@ export default function EditBlog() {
     let {id}=useParams();
     //calling axios function
     const findData=()=>{
-        axios.get(`http://localhost:5000/api/getbyBlogId/${id}`)
+        axios.get(`https://blog-website-api-eta.vercel.app/api/getbyBlogId/${id}`)
         .then((result)=>{
             const{title,description,image,userId}=result.data.message;
             setTitle(title);
@@ -35,7 +35,7 @@ export default function EditBlog() {
 
   const handleClick=()=>{
     // console.log(title);console.log(image);console.log(description);console.log(user_id);
-    axios.post(`http://localhost:5000/api/update-blog/${id}`,{
+    axios.post(`https://blog-website-api-eta.vercel.app/api/update-blog/${id}`,{
         title,
         description,
         image,

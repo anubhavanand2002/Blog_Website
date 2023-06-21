@@ -22,7 +22,7 @@ export default function AddBlog() {
    }
   const handleClick=()=>{
     // console.log(title);console.log(image);console.log(description);console.log(user_id);
-    axios.post("http://localhost:5000/api/add-blog",{
+    axios.post("https://blog-website-api-eta.vercel.app/api/add-blog",{
         title,
         description,
         image,

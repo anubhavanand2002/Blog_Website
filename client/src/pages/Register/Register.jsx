@@ -12,7 +12,7 @@ export default function Register() {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        axios.post("http://localhost:5000/api/register",{
+        axios.post("https://blog-website-api-eta.vercel.app/api/register",{
             name,
             email,
             password

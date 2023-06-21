@@ -16,7 +16,7 @@ export default function Login() {
 
     const handleInput=(e)=>{
        e.preventDefault();
-       axios.post("http://localhost:5000/api/login",{
+       axios.post("https://blog-website-api-eta.vercel.app/api/login",{
         email,
         password
        }).then((result)=>{

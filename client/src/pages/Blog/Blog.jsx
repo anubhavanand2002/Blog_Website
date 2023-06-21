@@ -5,7 +5,7 @@ import {message} from "antd";
 export default function Blog() {
 
   const handleDelete=(id)=>{
-       axios.delete(`http://localhost:5000/api/delete-blog/${id}`)
+       axios.delete(`https://blog-website-api-eta.vercel.app/api/delete-blog/${id}`)
        .then((res)=>{
           if(res.status){
             message.success("Deletion take place Successfully!!!");
@@ -24,7 +24,7 @@ export default function Blog() {
   
   const [blogs, setBlogs] = useState([]);
   const getAllBlogs = async () => {
-    const allBlogs = await axios.get('http://localhost:5000/api/get-all-blogs');
+    const allBlogs = await axios.get('https://blog-website-api-eta.vercel.app/api/get-all-blogs');
     if(allBlogs.data.status)
       setBlogs(allBlogs.data.allBlogs);
     console.log(allBlogs);
