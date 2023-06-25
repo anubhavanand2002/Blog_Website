@@ -8,16 +8,18 @@ import AddBlog from './pages/AddBlog/AddBlog';
 import MyBlog from './pages/MyBlog/MyBlog';
 import EditBlog from './pages/EditBlog/EditBlog';
 import { setUser } from './Redux/Features/userSlice';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import ProtectedRoute from './components/ProtectedRoute';
+import PublicRoute from './components/PublicRoute';
 import axios from 'axios';
 function App() {
-  const { user } = useSelector((state) => state.user);
+  const { user } = useSelector(state => state.user);
   const dispatch = useDispatch();
   const getUser = () => {
     axios
       .get('https://blog-website-api-eta.vercel.app/api/getUser', {
         headers: {
-          Authorization: 'Bearer ' + localStorage.getItem("session"),
+          Authorization: 'Bearer ' + localStorage.getItem('session'),
         },
       })
       .then(result => {
@@ -36,19 +38,86 @@ function App() {
     if (token && !user) {
       getUser();
     }
-  },[]);
+  }, []);
 
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/blogs" element={<Blog />} />
-        <Route path="/add-blog" element={<AddBlog />} />
-        <Route path="/my-blog" element={<MyBlog />} />
-        <Route path="/edit-blog/:id" element={<EditBlog />} />
-      </Routes>
+
+      
+        <Routes>
+          <Route 
+          path="/login" 
+          element=
+          {
+            <PublicRoute>
+              <Login />
+          </PublicRoute>
+          } />
+        </Routes>
+     
+
+      
+        <Routes>
+          <Route 
+          path="/register" 
+          element=
+          {
+            <PublicRoute>
+             <Register />
+          </PublicRoute>
+          } 
+          />
+        </Routes>
+     
+
+      
+        <Routes>
+          <Route 
+          path="/blogs" 
+          element=
+          {
+            <ProtectedRoute>
+           <Blog />
+          </ProtectedRoute>
+          } 
+          />
+        </Routes>
+    
+
+     
+        <Routes>
+          <Route 
+          path="/add-blog" 
+          element=
+          {
+            <ProtectedRoute> <AddBlog /></ProtectedRoute>
+          } />
+        </Routes>
+      
+
+     
+        <Routes>
+          <Route 
+          path="/my-blog" 
+          element=
+          {
+            <ProtectedRoute><MyBlog /></ProtectedRoute>
+           }
+           />
+        </Routes>
+   
+
+     
+        <Routes>
+          <Route 
+          path="/edit-blog/:id" 
+          element=
+          {
+            <ProtectedRoute><EditBlog /> </ProtectedRoute>
+          } />
+        </Routes>
+     
     </>
   );
 }

@@ -14,7 +14,7 @@ export default function BlogCard({data,deletes,val}) {
             onClick={() => {
                 Modal.confirm({
                   title: 'Confirm',
-                  content: 'Are you sure you want to logout?',
+                  content: 'Are you sure you want to delete?',
                   onOk() {
                     deletes();
                   },

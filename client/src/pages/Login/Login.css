@@ -42,3 +42,8 @@
     /* padding: 3px; */
     font-size: larger;
 }
+.sign a{
+    color: blue;
+    font-size: 20px;
+    font-weight: bolder;
+}

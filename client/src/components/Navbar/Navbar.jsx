@@ -2,9 +2,17 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 import './Navbar.css';
 import { useSelector } from 'react-redux';
-
+import { message } from 'antd';
 export default function Navbar() {
+
+
   const {isLoggedIn}=useSelector(state=>state.auth);
+
+  const handleLogout=()=>{
+     localStorage.clear('token');
+     message.success("Logout successfully!!");
+  }
+
   return (
     <div className='container'>
         <div className='logo-container'>
@@ -30,6 +38,9 @@ export default function Navbar() {
             <span></span>
             <Link to="/register">
                     <button className='btn'>Signup</button>
+            </Link>
+            <Link to="/register">
+                    <button className='btn' onClick={()=>{handleLogout()}}>Logout</button>
             </Link>
         </div>:<p>I m logged in</p>}
     </div>

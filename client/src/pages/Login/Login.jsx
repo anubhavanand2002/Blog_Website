@@ -3,7 +3,7 @@ import axios from "axios";
 import {message as msg} from "antd";
 import { useNavigate } from 'react-router-dom';
 import {useDispatch} from "react-redux";
-
+import { Link } from 'react-router-dom';
 import './Login.css';
 import { login } from '../../Redux/Features/authSlice';
 
@@ -59,11 +59,14 @@ export default function Login() {
              onChange={e=>{setPassword(e.target.value)}}
              />
           </div>
+         
         </div>
 
         <div className='button1'>
             <button className='submit' type="submit" onClick={e=>{handleInput(e)}}>Submit</button>
         </div>
+        <div className="sign"><Link to="/register">Are You a new user?Sign Up</Link></div>
+        
     </div>
   )
 }

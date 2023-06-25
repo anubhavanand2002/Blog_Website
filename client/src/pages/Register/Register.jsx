@@ -3,7 +3,7 @@ import {message as msg} from 'antd';
 import './Register.css';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 export default function Register() {
     const navigate=useNavigate();
     const[name,setName]=useState();
@@ -72,6 +72,7 @@ export default function Register() {
                         <button className='button' type="submit" onClick={e=>{handleSubmit(e)}}>Submit</button>
                     </div>
         </form>
+          <div className="register"><Link to="/login">Have you already registered?Sign In</Link></div>
             </div>
     </div>
   )
