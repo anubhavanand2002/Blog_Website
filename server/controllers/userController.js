@@ -25,7 +25,7 @@ export const login = async (req, res) => {
     if (!user) {
       res.status(201).json({ status: true, message: "Email Not Found!!!" });
     }
-    const is_same = await bcrypt.compare(password, user.password);
+    const is_same = bcrypt.compare(password, user.password);
     if (!is_same) {
       return res
         .status(201)
@@ -68,5 +68,22 @@ export const register = async (req, res) => {
     return res
       .status(500)
       .json({ status: false, message: "Internal Server Error" });
+  }
+};
+
+export const getuser = async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.body.userId });
+    console.log(user);
+    return res.status(200).json({
+      status: true,
+      message: "User details get successfully!!",
+      user,
+    });
+  } catch (error) {
+    return res.status(501).json({
+      status: false,
+      message: "Internal Server Error!!",
+    });
   }
 };

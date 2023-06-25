@@ -3,14 +3,15 @@ import './AddBlog.css';
 import axios from "axios";
 import { message } from 'antd';
 import { useNavigate } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 export default function AddBlog() {
     const navigate=useNavigate();
-
+    const{user}=useSelector((state)=>(state.user));
    const[title,setTitle]=useState();
    const[description,setDescription]=useState();
    const[image,setImage]=useState();
-   let userId='646c53103718e7211197f9b1';
+   let userId=user._id;
+
    const handleTitle=(e)=>{
     setTitle(e.target.value);
    }
