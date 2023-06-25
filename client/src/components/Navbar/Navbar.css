@@ -29,5 +29,12 @@
 .check-blogs{
     display: flex;
     justify-content: space-between;
-    width: 30%;
+    width: 35%;
+}
+p{
+    color: white;
+    font-size: 30px;
+    font-weight: bolder;
+    color: orangered;
+    
 }

@@ -3,8 +3,10 @@ import {Link} from 'react-router-dom';
 import './Navbar.css';
 import { useSelector } from 'react-redux';
 import { message } from 'antd';
+
 export default function Navbar() {
 
+  const{user}=useSelector((state)=>(state.user));
 
   const {isLoggedIn}=useSelector(state=>state.auth);
 
@@ -42,6 +44,7 @@ export default function Navbar() {
             <Link to="/register">
                     <button className='btn' onClick={()=>{handleLogout()}}>Logout</button>
             </Link>
+            <p>{user?.name}</p>
         </div>:<p>I m logged in</p>}
     </div>
   )
