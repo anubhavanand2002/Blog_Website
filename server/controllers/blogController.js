@@ -50,7 +50,7 @@ export const addBlog = async (req, res) => {
 };
 
 export const updateBlog = async (req, res) => {
-  const { title, description } = req.body;
+  const { title, description,image } = req.body;
   console.log(req.body);
   const blogId = req.params.id;
   let blog;
@@ -58,6 +58,7 @@ export const updateBlog = async (req, res) => {
     blog = await Blog.findByIdAndUpdate(blogId, {
       title: title,
       description: description,
+      image: image,
     });
     if (!blog) {
       return res
